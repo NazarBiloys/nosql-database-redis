@@ -15,3 +15,10 @@ Configure master-slave redis claster, test all eviction strategy, wrapper for re
 
 ## Conclusions
 * For case when we use probabilistic cache clearing, we can reduce ~50% using database with 10concurrency requests between 40s. 
+
+## Keys eviction
+
+* For test different Eviction strategy i changed --maxmemory-policy in `redis` container
+* Check result in `evicted_keys` from info command
+
+![img_2.png](img_2.png)

@@ -27,7 +27,14 @@ func handler(w http.ResponseWriter, r *http.Request) {
 	}
 }
 
+func handlerCache(w http.ResponseWriter, r *http.Request) {
+	if r.Method == "POST" {
+		service.StoreRandCache()
+	}
+}
+
 func main() {
 	http.HandleFunc("/", handler)
+	http.HandleFunc("/redis-rand", handlerCache)
 	log.Fatal(http.ListenAndServe(":90", nil))
 }

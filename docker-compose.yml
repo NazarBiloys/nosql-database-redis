@@ -54,6 +54,20 @@ services:
     volumes:
       - influxdb:/var/lib/influxdb
 
+#  redis:
+#    image: redis:latest
+#    container_name: redis
+#    restart: always
+#    deploy:
+#      resources:
+#        limits:
+#          memory: 3mb
+#    command: redis-server --maxmemory 2mb --maxmemory-policy allkeys-lru
+#    ports:
+#      - "6379:6379"
+#    volumes:
+#      - ./data/redis:/data
+
   redis-master:
     image: redis:latest
     container_name: redis-master
@@ -101,8 +115,8 @@ services:
       - mongodb:/data/db
 
 volumes:
-  grafana:
-    driver: local
+#  grafana:
+#    driver: local
   influxdb:
     driver: local
   mongodb:
